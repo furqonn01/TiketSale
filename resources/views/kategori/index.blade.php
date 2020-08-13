@@ -10,25 +10,35 @@
                 <table class="table table-bordered" id="users-table">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>No</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Created At</th>
-                            <th>Updated At</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no=1; ?>
+                        @foreach ($kategori as $item )
                         <tr>
-                            <td>Id</td>
-                            <td>Name</td>
+                            <td>{{$no}}</td>
+                            <td>{{$item->nama_kategori}}</td>
                             <td>Email</td>
-                            <td>Created At</td>
-                            <td>Updated At</td>
+                            <td></td>
                         </tr>
+                        <?php $no++; ?>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+@push('scripts')
+<script>
+    $(function() {
+    $('#users-table').DataTable();
+});
+</script>
+@endpush
+
 @endsection
