@@ -61,7 +61,8 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori=Kategori::findOrFail($id);
+        return view('kategori.edit', compact('kategori'));
     }
 
     /**
@@ -73,7 +74,12 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            ['nama_kategori'=>'min:4|required']
+        );
+        $kategori=Kategori::find($id);
+        $kategori->update($request->all());
+        return redirect()->route('kategori.index')->with('pesan','Data berhasil diupdate');
     }
 
     /**
