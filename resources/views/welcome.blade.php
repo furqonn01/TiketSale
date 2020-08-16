@@ -75,7 +75,7 @@
 <body>
     <div class="flex-center position-ref full-height">
         <div class="top-right links">
-            <a href="{{ route('awal')}}">Belanja</a>
+            <a href="{{ route('home')}}">Belanja</a>
             <a href="https://twitter.com/nugrohofurqon">Twitter</a>
             <a href="https://facebook.com">Facebook</a>
             <a href="https://instagram.com/nugrohofurqon">Instagram</a>
@@ -96,7 +96,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                <a style="color:rgb(131, 162, 163) ;text-decoration: none" href="{{ route('awal')}}">
+                <a style="color:rgb(131, 162, 163) ;text-decoration: none" href="{{ route('home')}}">
                     Furqon's Ticket Sale
                 </a>
             </div>
