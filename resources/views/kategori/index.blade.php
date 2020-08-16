@@ -6,10 +6,11 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Kategori</div>
+
                 <div class="card-body">
                     <td><a class="btn btn-primary" href="{{ route('kategori.create') }}">Tambah Data</a></td>
                 </div>
-
+                @include('notifikasi')
                 <table class="table table-bordered" id="users-table">
                     <thead>
                         <tr>
