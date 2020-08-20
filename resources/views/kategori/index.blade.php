@@ -29,9 +29,11 @@
                             <td><a class="btn btn-success btn-sm"
                                     href="{{ route('kategori.edit', $item->id) }}">Edit</a>
                             </td>
-                            <td><a class="btn btn-danger btn-sm"
-                                    href="{{ route('kategori.destroy', $item->id) }}">Delete</a>
+                            {!! Form::open(['route'=>['kategori.destroy',$item->id],'method'=>'DELETE']) !!}
+                            <td>
+                                <button type="submit" name="submit" class="btn btn-danger">Delete</button>
                             </td>
+                            {!! Form::close() !!}
                         </tr>
                         <?php $no++; ?>
                         @endforeach

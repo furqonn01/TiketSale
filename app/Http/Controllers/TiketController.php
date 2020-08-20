@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Kategori;
+use App\Tiket;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class TiketController extends Controller
 {
-    /**
+    /**￼
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $kategori=Kategori::all();
-        return view('kategori.index',compact('kategori'));
+        $tiket=Tiket::all();
+        return view('tiket.index', compact('tiket'));
     }
 
     /**
@@ -24,7 +24,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view ('kategori.create');
+        //
     }
 
     /**
@@ -36,10 +36,15 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate(
-            ['nama_kategori'=>'min:4|required']
-        );
-        $kategori=Kategori::create($request->all());
-        return redirect()->route('kategori.index')->with('pesan','Data berhasil ditambahkan');
+            [
+                'name_tiket' => 'required|min:4',
+                'harga_tiket' => 'required|numeric',
+                'jumlah_tiket' => 'required',
+                'jenis_tiket' => 'required',
+            ]
+            );
+            Tiket::create($request->all());
+            return redirect()->route('tiket.index')->with('pesan', 'Data tiket berhasil di simpan');
     }
 
     /**
@@ -61,8 +66,8 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        $kategori=Kategori::findOrFail($id);
-        return view('kategori.edit', compact('kategori'));
+        $tiket = Tiket::findOrFail($id);
+        return view('tiket.edit', compact('tiket'));
     }
 
     /**
@@ -75,11 +80,16 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate(
-            ['nama_kategori'=>'min:4|required']
-        );
-        $kategori=Kategori::find($id);
-        $kategori->update($request->all());
-        return redirect()->route('kategori.index')->with('pesan','Data berhasil diupdate');
+            [
+                'name_tiket' => 'required|min:4',
+                'harga_tiket' => 'required|numeric',
+                'jumlah_tiket' => 'required',
+                'jenis_tiket' => 'required',
+            ]
+            );
+            $tiket = Tiket::find($id);
+            $tiket->update($request->all());
+            return redirect()->route('tiket.index')->with('pesan', 'Data tiket berhasil di update');
     }
 
     /**
@@ -90,8 +100,11 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        $kategori=Kategori::find($id);
-        $kategori->delete();
-        return redirect()->route('kategori.index')->with('pesan','Data berhasil dihapus');
+        $tiket=Tiket::find($id);
+        if($tiket){
+            return redirect()->back();
+        }
+        $tiket->delete();
+        return redirect()->route('tiket.index')->with('pesan', 'Data tiket berhasil di hapus');
     }
 }
