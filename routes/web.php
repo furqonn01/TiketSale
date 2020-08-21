@@ -16,15 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['middleware' => 'auth'], function () {
 
-Auth::routes();
-Auth::routes(['verify' => true]);
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
-Route::get('/beranda', 'PerintahController@index')->name('awal');
-Route::resource('kategori', 'KategoriController');
-Route::resource('tiket', 'TiketController');
-Route::get('transaksi', 'TransaksiController@index')->name('transaksi.index');
-Route::post('transaksi', 'TransaksiController@store')->name('transaksi.store');
-Route::delete('transaksi/{id}', 'TransaksiController@destroy')->name('transaksi.destroy');
-Route::get('transaksi/update', 'TransaksiController@update')->name('transaksi.update');
-Route::get('transaksi/pdf', 'TransaksiController@laporan')->name('transaksi.laporan');
+    Auth::routes();
+    Auth::routes(['verify' => true]);
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+    Route::get('/beranda', 'PerintahController@index')->name('awal');
+    Route::resource('kategori', 'KategoriController');
+    Route::resource('tiket', 'TiketController');
+    Route::get('transaksi', 'TransaksiController@index')->name('transaksi.index');
+    Route::post('transaksi', 'TransaksiController@store')->name('transaksi.store');
+    Route::delete('transaksi/{id}', 'TransaksiController@destroy')->name('transaksi.destroy');
+    Route::get('transaksi/update', 'TransaksiController@update')->name('transaksi.update');
+    Route::get('transaksi/pdf', 'TransaksiController@laporan')->name('transaksi.laporan');
+
+});
