@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TransaksiController extends Controller
 {
@@ -28,5 +29,12 @@ class TransaksiController extends Controller
     }
     public function laporan()
     {
+        $pdf = app('Fpdf');
+$pdf->AddPage();
+$pdf->SetFont('Arial','B',16);
+$pdf->Cell(40,10,'Hello Furqon!!!');
+$pdf->output();
+exit;
+
     }
 }
