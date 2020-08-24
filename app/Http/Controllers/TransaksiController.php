@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Transaksi;
+use Fpdf;
 use Illuminate\Http\Request;
+use App\Exports\TransaksiExport;
 use Illuminate\Support\Facades\Storage;
 
 class TransaksiController extends Controller
@@ -59,6 +61,9 @@ class TransaksiController extends Controller
 
         $pdf->Output();
         exit;
-
+    }
+    public function excel()
+    {
+        return (new TransaksiExport)->download('penjualan_tiket.xlsx');
     }
 }

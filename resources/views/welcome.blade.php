@@ -73,6 +73,7 @@
 </head>
 
 <body>
+
     <div class="flex-center position-ref full-height">
         <div class="top-right links">
             <a href="{{ route('home')}}">Belanja</a>
@@ -96,13 +97,14 @@
 
         <div class="content">
             <div class="title m-b-md">
-                <a style="color:rgb(131, 162, 163) ;text-decoration: none" href="{{ route('home')}}">
+                <a style="color:rgb(131, 162, 163) ;text-decoration: none" href="{{ route('authlogin')}}">
                     Furqon's Ticket Sale
                 </a>
             </div>
 
         </div>
     </div>
+
 </body>
 
 </html>

@@ -24,7 +24,7 @@ class TiketController extends Controller
      */
     public function create()
     {
-        //
+        return view('tiket.create');
     }
 
     /**

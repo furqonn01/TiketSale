@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::group(['middleware' => 'auth'], function () {
-
-    Auth::routes();
+Route::get('/loginauth', function () {
+    return view('auth/login');
+})->name('authlogin');
     Auth::routes(['verify' => true]);
-    Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
     Route::get('/beranda', 'PerintahController@index')->name('awal');
     Route::resource('kategori', 'KategoriController');
     Route::resource('tiket', 'TiketController');
@@ -29,5 +30,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('transaksi/{id}', 'TransaksiController@destroy')->name('transaksi.destroy');
     Route::get('transaksi/update', 'TransaksiController@update')->name('transaksi.update');
     Route::get('transaksi/pdf', 'TransaksiController@laporan')->name('transaksi.laporan');
+    Route::get('/excel', 'TransaksiController@excel')->name('laporan.excel');
+    });
 
-});
