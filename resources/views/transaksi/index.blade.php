@@ -13,7 +13,7 @@
                             <td>
                                 <div class="col-md-12">
                                     {!!Form::select('id_tiket',\App\Tiket::pluck('name_tiket','id'), null,
-                                    ['class'=>'form-controll'])!!}
+                                    ['class'=>'form-control'])!!}
                                 </div>
                             </td>
                         </tr>
@@ -60,7 +60,7 @@
                             {!! Form::close() !!}
                         </tr>
                         <?php $no++ ?>
-                        <?php $total=$total+($item->tiket->harga_tiket*$item->qty) ?>
+                        <?php $total=$total+($item->tiket->harga_tiket*$item->qty)*1000 ?>
                         @endforeach
                         <tr>
                             <td colspan="5">

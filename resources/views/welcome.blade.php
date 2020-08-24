@@ -97,7 +97,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                <a style="color:rgb(131, 162, 163) ;text-decoration: none" href="{{ route('authlogin')}}">
+                <a style="color:rgb(131, 162, 163) ;text-decoration: none" href="{{ route('home')}}">
                     Furqon's Ticket Sale
                 </a>
             </div>

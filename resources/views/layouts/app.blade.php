@@ -23,7 +23,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <style type="text/css">
         .navbar-expand-md {
-            background-color: #27c8f9;
+            background-color: #97b89ec4;
         }
     </style>
 </head>
@@ -32,7 +32,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{route('welcome')}}">
                     <i class="fas fa-assistive-listening-systems"> Sistem Penjulan Tiket</i>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"

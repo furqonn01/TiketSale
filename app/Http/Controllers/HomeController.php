@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
+use App\Kategori;
+use App\Tiket;
 use DB;
 
 class HomeController extends Controller
@@ -28,7 +30,7 @@ class HomeController extends Controller
         $transaksi=DB::table('transaksis')
         ->join('tikets','tikets.id','=','transaksis.id_tiket')
         ->join('kategoris','kategoris.id','=','tikets.id_kategori')
-        ->where('status','=',1)
+        ->where('status','=',0)
         ->get();
         $count=Transaksi::all();
         return view('home', compact('transaksi','count'));

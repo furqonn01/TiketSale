@@ -3,7 +3,7 @@
 @section('content')
 <style type="text/css">
     .card-header {
-        background-color: #27c8f9;
+        background-color: #d7e6d0;
     }
 </style>
 <div class="container">
